@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/style.css" type="text/css" />
+        <script src="/scripts/script.js" type="text/javascript" defer>
+        </script>
+    </head>
+
+    <body>
+        <% if(current_set != 61) { %>
+        <form method="POST" action="/eval">
+        <div class="container">
+            <div class="header">
+                <div class="set demo">
+                    <div>
+                        SET <%= current_set %> OUT OF 60
+                    </div>
+                </div> 
+            </div>
+            <div class="content">
+                <div class="col-1">
+                    <div class="source">
+                        <div class="title">
+                            Source
+                        </div>
+                        <div class="text">
+                            <div class="subsection">
+                                <div class="subheading">
+                                    EXAM
+                                </div>
+                                <div class="text">
+                                    <%= exam %>
+                                </div>
+                            </div>
+                            <div class="subsection">
+                                <div class="subheading">
+                                    CLINICAL HISTORY
+                                </div>
+                                <div class="text">
+                                    <%= clinical_history %>
+                                </div>
+                            </div>
+                            <div class="subsection">
+                                <div class="subheading">
+                                    COMPARISON
+                                </div>
+                                <div class="text">
+                                    <%= comparison %>
+                                </div>
+                            </div>
+
+                            <div class="subsection">
+                                <div class="subheading">
+                                    FINDINGS
+                                </div>
+                                <div class="text">
+                                    <%- findings %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="clinical">
+                        <div class="title">
+                            Clinical Accuracy
+                        </div>
+                        
+                        <div class="button-row">
+                            <input type="radio" id="clinical-1" name="clinical" value="frankly misleading" required="required"/>
+                            <label for="clinical-1">FRANKLY MISLEADING</label>
+                            <input type="radio" id="clinical-2" name="clinical" value="inaccurate" required="required"/>
+                            <label for="clinical-2">INACCURATE</label>
+                            <input type="radio" id="clinical-3" name="clinical" value="mostly accurate" required="required"/>
+                            <label for="clinical-3">MOSTLY ACCURATE</label>
+                            <input type="radio" id="clinical-4" name="clinical" value="accurate" required="required"/>
+                            <label for="clinical-4">ACCURATE</label>
+                        </div>
+                    </div>
+                    <div class="grammatical">
+                        <div class="title">
+                            Grammatical Errors
+                        </div>
+                        <div class="button-row">
+                            <input type="radio" id="grammatical-1" name="grammatical" value="incomprehensible" required="required"/>
+                            <label for="grammatical-1">INCOMPREHENSIBLE</label>
+                            <input type="radio" id="grammatical-2" name="grammatical" value="multiple errors" required="required"/>
+                            <label for="grammatical-2">MULTIPLE ERRORS</label>
+                            <input type="radio" id="grammatical-3" name="grammatical" value="one error" required="required"/>
+                            <label for="grammatical-3">ONE ERROR</label>
+                            <input type="radio" id="grammatical-4" name="grammatical" value="no errors" required="required"/>
+                            <label for="grammatical-4">NO ERRORS</label>
+                        </div>
+                    </div>
+                    <div class="quality">
+                        <div class="title">
+                            Stylistic Quality
+                        </div>
+                        <div class="button-row">
+                            <input type="radio" id="quality-1" name="quality" value="very unsatisfactory" required="required"/>
+                            <label for="quality-1">VERY UNSATISFACTORY</label>
+                            <input type="radio" id="quality-2" name="quality" value="unsatisfactory" required="required"/>
+                            <label for="quality-2">UNSATISFACTORY</label>
+                            <input type="radio" id="quality-3" name="quality" value="mostly satisfactory" required="required"/>
+                            <label for="quality-3">MOSTLY SATISFACTORY</label>
+                            <input type="radio" id="quality-4" name="quality" value="satisfactory" required="required"/>
+                            <label for="quality-4">SATISFACTORY</label>
+                        </div>
+                    </div>
+                    <div class="impression">
+                        <div class="impression-row" style="display: flex; align-items: center">
+                            <div class="title">
+                                Impression
+                            </div>
+                            <div class="timer-container">
+                                <div class="timer-title">EDIT TIME:</div>
+                                 <div class="timer">00:00.00</div>
+                            </div>
+                        </div>
+
+                        <% if(original) { %>
+                            <textarea name="edited_impression" onclick="start()" onblur="stop()"><%- original_impression %></textarea>
+                        <% } %>
+                        <% if(!original) { %>
+                            <textarea name="edited_impression" onclick="start()" onblur="stop()"><%- predicted_impression %></textarea>
+                        <% } %>
+                    </div>
+                    <input name="user_id" value="<%= user_id %>" type="hidden" />       
+                    <input name="current_set" value="<%= current_set %>" type="hidden" />  
+                    <input name="edit_time" type="hidden" id="edit_time"/>
+                    <div class="submit">
+                        <input type="submit" value="SUBMIT"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        <% } %>
+        <% if(current_set == 61) { %>
+        <div class="thanks">
+        <h1>Thank you for participating! <br/> We will greatly appreciate your <span style="color: #3a86ff">feedback!</span></h1>
+        </div>
+        <% } %>
+    </body>
+</html>

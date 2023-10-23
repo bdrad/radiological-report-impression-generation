@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none; */
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1}
+}
+
+form, .container, html, body {
+    font-family: 'Roboto';
+    height: 100%;
+    animation: fadeIn linear 1.25s;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .header { 
+    flex: 10%;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+
+.container .header .set {
+    align-items: flex-start;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .header .explanation {
+    margin-top: 2rem;
+    margin-left: 1.25rem;
+    font-size: 1rem;
+}
+
+.set div {
+    flex: 20%;
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    padding: 0.25em 1em;
+    background-color: #3a86ff;
+}
+
+.container .content { 
+    flex: 90%;
+    display: flex;
+    gap: 1rem;
+    padding: 1em;
+}
+
+.thanks {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+.col {
+    flex-direction: column;
+    display: flex;
+    flex: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.col div h1 {
+    font-weight: 900;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.col div span {
+    color: #3a86ff;
+}
+
+.col div sup {
+    font-size: 1.5rem;
+}
+
+.col-1, .col-2 {
+    flex: 50%;
+}
+
+.col-2 {
+    display: flex;
+    /* justify-content: ; */
+    flex-direction: column;
+}
+
+.col-1 > div .title, .col-2 > div .title {
+    font-weight: bold;
+    padding: 1rem;
+    font-size: 1.5rem;
+    flex-grow: 1;
+}
+
+.col-1 > div .text, .col-2 > div .text {
+    flex-grow: 4;
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 25px #ddd;
+}
+
+.col-2 > div textarea {
+    color: black;
+    height: 10rem;
+    flex-grow: 4;
+    padding: 1rem;
+    font-family: Roboto;
+    border: none;
+    font-size: 1rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 25px #ddd;
+    resize: none;
+}
+
+.subsection {
+    display: flex;
+    flex-direction: column;
+}
+
+.subsection .subheading {
+    text-align: center;
+    background-color: #3a86ff;
+    color: white;
+    font-weight: bold;
+    padding: 0.2rem 1rem;
+    font-size: 1rem;
+}
+
+.col-1 .subsection .text {
+    box-shadow: none;
+}
+
+.impression {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-row label, input[type="submit"] {
+    font-family: 'Roboto';
+    font-size: 0.75rem;
+    padding: 10px 30px;
+    border-radius: 2rem;
+    color: #3a86ff;
+    font-weight: bold;
+    background-color: transparent;
+    border: 2px solid #3a86ff;
+}
+
+.button-row label {
+    padding: 10px 20px;
+}
+
+.button-row input[type="radio"] {
+    opacity: 0;
+    z-index: 100;
+}
+
+.button-row input[type="radio"]:checked+label,
+.Checked+label, input[type="submit"]:active {
+    background: #3a86ff;
+    color: white;
+}
+
+input[type="password"] {
+    border: 2px solid black;
+    border-radius: 2rem;
+    padding: 0.25rem 1.5rem;
+    font-size: 1.5rem;
+}
+
+.submit {
+    flex-basis: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.access {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.access div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.access div p {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.timer-container {
+    display: flex; 
+    flex-direction: space-between; 
+    align-items: flex-end;
+    color: white;
+    padding: 0.25rem 1rem;
+    background-color: #3a86ff;
+}
+
+.timer-title {
+    margin-right: 1rem;
+    font-weight: bold;
+    font-family: 'Roboto'
+}
+
+.timer {
+    text-align: center;
+    /* padding: 0.25rem 0.5rem; */
+    font-weight: bold;
+    font-family: 'Roboto'
+}
