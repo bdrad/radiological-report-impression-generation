@@ -16,7 +16,6 @@ def main(config):
     checkpoint_callback = ModelCheckpoint(
         dirpath="checkpoints/",
         filename=save_path,
-        verbose=True,
     )
 
     trainer = pl.Trainer(
