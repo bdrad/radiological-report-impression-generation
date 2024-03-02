@@ -1,0 +1,19 @@
+model:
+  pretrained_model: "google/flan-t5-base"
+
+training:
+  batch_size: 4
+  max_epochs: 3
+  learning_rate: 3e-4
+  accumulate_grad_batches: 32
+  gpus: 1
+
+mode: "train_test"  # Options: "train", "test", "train_test"
+
+data:
+  dataset_name: "UCSF"
+  input_length: 512
+  output_length: 150
+  train_path: "data/UCSF_train.csv"
+  validation_path: "data/UCSF_val.csv"
+  test_path: "data/UCSF_test.csv"
