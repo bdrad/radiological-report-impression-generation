@@ -1,5 +1,5 @@
 model:
-  pretrained_model: "google/flan-t5-base"
+  pretrained_model: "google/t5-base"
 
 training:
   batch_size: 4
